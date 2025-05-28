@@ -7,3 +7,8 @@ Route::get('/', [PemasukanController::class, 'index']);
 Route::get('/keuangan/tambah', [PemasukanController::class, 'create']);
 Route::post('/keuangan/simpan', [PemasukanController::class, 'store']);
 Route::get('/keuangan/cari', [PemasukanController::class, 'cari']);
+
+Route::get('/migrate', function () {
+    Artisan::call('migrate --force');
+    return 'Migrated!';
+});
