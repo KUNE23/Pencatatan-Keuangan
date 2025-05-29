@@ -12,3 +12,12 @@ Route::get('/migrate', function () {
     Artisan::call('migrate --force');
     return 'Migrated!';
 });
+
+Route::get('/db-test', function () {
+    try {
+        \DB::connection()->getPdo();
+        return '✅ Connected to DB!';
+    } catch (\Exception $e) {
+        return '❌ Connection failed: ' . $e->getMessage();
+    }
+});
