@@ -108,22 +108,32 @@
       <td>{{ $pemasukan->keterangan }}</td>
     </tr>
     @endforeach
-    <tr>
-      <td colspan="5"><b>Saldo : Rp. {{ number_format($saldo) }}</b></td>
-    </tr>
   </tbody>
 </thead>
 </table>
 <footer>
   <center>
-    <p class="total">
-      <b class="pemasukan">Total Pemasukan : Rp. {{ number_format($jumlahPemasukan) }}</b>
-      <b class="saldo">Saldo : Rp. {{ number_format($saldo) }}</b>
-      <b class="pengeluaran">Total Pengeluaran : Rp. {{ number_format($jumlahPengeluaran) }}</b>
-    </p>
+    <button class="button-34" role="button" onclick="toggleMoneyVisibility()">Show/Hide Money</button>
+<div id="moneyAmount" style="display: none;">
+  <p class="total">
+    <b class="pemasukan">Total Pemasukan : Rp. {{ number_format($jumlahPemasukan) }}</b>
+    <b class="saldo">Saldo : Rp. {{ number_format($saldo) }}</b>
+    <b class="pengeluaran">Total Pengeluaran : Rp. {{ number_format($jumlahPengeluaran) }}</b>
+  </p>
+</div>
   </center>
 </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script>
+    function toggleMoneyVisibility() {
+  var moneyAmount = document.getElementById("moneyAmount");
+  if (moneyAmount.style.display === "none") {
+    moneyAmount.style.display = "block"; /* Show the element */
+  } else {
+    moneyAmount.style.display = "none"; /* Hide the element */
+  }
+}
+  </script>
 </body>
 
 </html>
